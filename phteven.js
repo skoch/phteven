@@ -17,7 +17,19 @@ app.post('/', function(req, res) {
     if (!req.body) {
         return res.sendStatus(400);
     }
-    res.send('req.body.token' + req.body.token);
+
+    if (req.body.token == '2s5xgNw6FhEMblHYuvG14p5c') {
+        var response = {
+            "response_type": "in_channel",
+            "attachments": [
+                {
+                    "text":"https://pbs.twimg.com/media/B_h8HN5WwAEC2rn.jpg"
+                }
+            ]
+        }
+
+        res.json(response);
+    }
 });
 
 app.listen(app.get('port'), function() {
