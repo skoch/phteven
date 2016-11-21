@@ -23,7 +23,7 @@ app.post('/', function(req, res) {
             "response_type": "in_channel",
             "attachments": [
                 {
-                    "text":"https://pbs.twimg.com/media/B_h8HN5WwAEC2rn.jpg"
+                    "image_url": "https://pbs.twimg.com/media/B_h8HN5WwAEC2rn.jpg"
                 }
             ]
         }
