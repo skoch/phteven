@@ -17,7 +17,7 @@ app.post('/', function(req, res) {
     if (!req.body) {
         return res.sendStatus(400);
     }
-    res.send('req.body' + req.body);
+    res.send('req.body.token' + req.body.token);
 });
 
 app.listen(app.get('port'), function() {
