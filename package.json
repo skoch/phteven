@@ -2,6 +2,10 @@
   "name": "phteven",
   "version": "1.0.0",
   "description": "Phteven!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skoch/phteven.git"
+  },
   "main": "phteven.js",
   "scripts": {
     "start": "node phteven.js"
@@ -10,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "request": "^2.79.0"
   },
   "engines": {
     "node": "6.7.0"
