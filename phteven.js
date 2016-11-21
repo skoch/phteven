@@ -37,7 +37,7 @@ app.get('/slack-auth', function(req, res) {
                 }
             });
         }
-    }
+    });
 });
 
 app.post('/', function(req, res) {
