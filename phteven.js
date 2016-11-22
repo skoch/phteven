@@ -1,16 +1,20 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
 const request = require('request');
 
-var app = express();
+const app = express();
 app.set('port', (process.env.PORT || 3000));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.get('/', function(req, res) {
-//     res.send('<img src="https://pbs.twimg.com/media/B_h8HN5WwAEC2rn.jpg">');
-// });
+app.get('/', function(req, res) {
+    // GET where ssl_check set to 1 from Slack
+    if (req.query.ssl_check == 1) {
+        return res.sendStatus(200);
+    }
+    return res.sendStatus(403);
+});
 
 app.get('/slack-auth', function(req, res) {
     let data = {form: {
@@ -43,15 +47,11 @@ app.get('/slack-auth', function(req, res) {
 app.post('/', function(req, res) {
     // token
     // B8ii7NIl0AHV4FoH21XvgRg5
-    console.log('start');
     if (!req.body) {
-        console.log('400');
         return res.sendStatus(400);
     }
 
-    console.log('check token', req.body.token);
     if (req.body.token == 'B8ii7NIl0AHV4FoH21XvgRg5') {
-        console.log('token good');
         var response = {
             "response_type": "in_channel",
             "attachments": [
@@ -60,13 +60,8 @@ app.post('/', function(req, res) {
                 }
             ]
         }
-        console.log('send response');
         res.json(response);
-    } else {
-        console.log('token did not pass');
     }
-    console.log('end');
-
 });
 
 app.listen(app.get('port'), function() {
