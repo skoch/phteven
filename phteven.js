@@ -49,6 +49,7 @@ app.post('/', function(req, res) {
         return res.sendStatus(400);
     }
 
+    console.log('check token', req.body.token);
     if (req.body.token == '2s5xgNw6FhEMblHYuvG14p5c') {
         console.log('token good');
         var response = {
@@ -61,7 +62,11 @@ app.post('/', function(req, res) {
         }
         console.log('send response');
         res.json(response);
+    } else {
+        console.log('token did not pass');
     }
+    console.log('end');
+
 });
 
 app.listen(app.get('port'), function() {
