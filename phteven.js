@@ -43,11 +43,14 @@ app.get('/slack-auth', function(req, res) {
 app.post('/', function(req, res) {
     // token
     // 2s5xgNw6FhEMblHYuvG14p5c
+    console.log('start');
     if (!req.body) {
+        console.log('400');
         return res.sendStatus(400);
     }
 
     if (req.body.token == '2s5xgNw6FhEMblHYuvG14p5c') {
+        console.log('token good');
         var response = {
             "response_type": "in_channel",
             "attachments": [
@@ -56,7 +59,7 @@ app.post('/', function(req, res) {
                 }
             ]
         }
-
+        console.log('send response');
         res.json(response);
     }
 });
