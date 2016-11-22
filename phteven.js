@@ -42,7 +42,7 @@ app.get('/slack-auth', function(req, res) {
 
 app.post('/', function(req, res) {
     // token
-    // 2s5xgNw6FhEMblHYuvG14p5c
+    // B8ii7NIl0AHV4FoH21XvgRg5
     console.log('start');
     if (!req.body) {
         console.log('400');
@@ -50,7 +50,7 @@ app.post('/', function(req, res) {
     }
 
     console.log('check token', req.body.token);
-    if (req.body.token == '2s5xgNw6FhEMblHYuvG14p5c') {
+    if (req.body.token == 'B8ii7NIl0AHV4FoH21XvgRg5') {
         console.log('token good');
         var response = {
             "response_type": "in_channel",
